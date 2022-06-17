@@ -7,11 +7,14 @@
    * X - Strike, worth 10 + the values of the next two throws
    * / - Spare, brings the frame total to 10 + the next throw
    * F - Foul, same as a gutter ball: 0 points for the roll
+4. Input array will not include MORE than the appropriate number of rolls (otherwise, the result would be a nested array of up-to-10-elements arrays, instead of just the single up-to-10-elements array)
 
 ## Approach
 Though there are many ways to solve this prompt, I think writing a quick
 state-machine to parse the incoming rolls sounds like the most fun!  Here's
 a quick diagram:
+
+![](bowling-diagram.png)
 
 ## Installation
 
