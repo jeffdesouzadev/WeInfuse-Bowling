@@ -25,5 +25,12 @@ a quick diagram:
 
 
 
-## Installation
+# Installation
+1. clone down the repo from git
+2. open a terminal window and navigate to the project directory
+3. `npm install`
+4. after it's done installing, run `npm start` to run the jest tests
+5. profit
 
+## Future work
+If I get extra time today, I might bake this into an Express server.

@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "start": "jest"
+  },
+  "dependencies": {
+    "jest": "^28.1.0",
+    "node": "^17.7.2",
+    "nodemon": "^2.0.16"
+  }
+}

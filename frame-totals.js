@@ -1,4 +1,4 @@
-let getFrameTotals = function(rolls) {
+const getFrameTotals = function(rolls) {
   /*
   Assuming each element of rolls is a throw,
   irrespective of what frame the player is on.
@@ -8,6 +8,9 @@ let getFrameTotals = function(rolls) {
    F - Foul, same as a gutter ball: 0 points for the roll
   */
 
+  let resultantScores = []
 
 
+  return resultantScores
 }
+module.exports = getFrameTotals
