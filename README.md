@@ -6,8 +6,8 @@
 3. Acceptable Non-Integer values:
    * X - Strike, worth 10 + the values of the next two throws
    * / - Spare, brings the frame total to 10 + the next throw
-   * F - Foul, same as a gutter ball: 0 points for the roll
 4. Input array will not include MORE than the appropriate number of rolls (otherwise, the result would be a nested array of up-to-10-elements arrays, instead of just the single up-to-10-elements array)
+5. Incomplete frames (such as a single integer roll, or a strike with no follow-up rolls) return as null until the required roll to finish out that frame's score are added to the array.
 
 ## Approach
 1. Though there are many ways to solve this prompt, I think writing a quick
