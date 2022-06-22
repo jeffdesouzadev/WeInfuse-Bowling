@@ -36,3 +36,16 @@ test('[2, 3] = [5]', () => {
 test('[2, 4, 3] = [6, null]', () => {
   expect(getFrameTotals([2, 4, 3])).toEqual([6, null]);
 });
+
+//PROVIDED EXAMPLE OUTPUTS
+test('[4, 5, X, 8] = [9, null, null]', () => {
+  expect(getFrameTotals([4, 5, 'X', 8])).toEqual([9, null, null]);
+});
+test('[4, 5, X, 8, 1] = [9, 19, 9]', () => {
+  expect(getFrameTotals([4, 5, 'X', 8, 1])).toEqual([9, 19, 9]);
+});
+
+
+test('[X, X, X, X, X, X, X, X, X, X, X, X,] = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30]', () => {
+  expect(getFrameTotals(['X','X','X','X','X','X','X','X','X','X','X','X'])).toEqual([30, 30, 30, 30, 30, 30, 30, 30, 30, 30]);
+});

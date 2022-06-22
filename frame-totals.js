@@ -26,50 +26,46 @@ const getFrameTotals = function(bowlingRolls) {
         let val = rolls[0]
         let nextVal = getNextValue(rolls)
         let nextNextVal = getNextNextValue(rolls)
-        console.log('val, nextVal, nextNextVal:', `${val} ${nextVal} ${nextNextVal}`)
+        // console.log('val, nextVal, nextNextVal:', `${val} ${nextVal} ${nextNextVal}`)
         if (val === 'X') { //STRIKE
           if (nextVal === null || nextNextVal === null) {
             runningTotal = null
             let newRolls = rolls.slice(1, rolls.length)
-            // console.log('strikeNewRolls is', newRolls)
             return [runningTotal, newRolls]
           } else {
+            if (nextVal==='X') {
+              nextVal = 10
+            }
+            if (nextNextVal === 'X') {
+              nextNextVal = 10
+            }
             runningTotal = 10 + nextVal + nextNextVal
             let newRolls = rolls.slice(1, rolls.length)
             return [runningTotal, newRolls]
           }
 
         } else if (!isNaN(val)) { //NUMBER
-          console.log('start is a number')
           if (nextVal === null) {
             return [null, []]
           } else {
             if (!isNaN(nextVal)) { //NUMBER + NUMBER
               runningTotal = val + nextVal
               let newRolls = rolls.slice(2, rolls.length)
-              // console.log('newRolls is', newRolls)
               return [runningTotal, newRolls]
 
 
             } else if (nextVal === '/' && nextNextVal === null) {
-              console.log('num / null')
               runningTotal = null
               let newRolls = rolls.slice(2, rolls.length)
               return [runningTotal, newRolls]
-              //handle nextnext = strike
             }else if (nextVal === '/' && !isNaN(nextNextVal)) {
-              console.log('num / num')
               runningTotal = 10 + nextNextVal
-              console.log('pre-slice', rolls)
               let newRolls = rolls.slice(2, rolls.length)
-              console.log('post-slice', newRolls)
               return [runningTotal, newRolls]
-              //handle nextnext = strike
             } else if (nextVal === '/' && nextNextVal === 'X') {
               runningTotal = 10 + 10
               let newRolls = rolls.slice(2, rolls.length)
               return [runningTotal, newRolls]
-              //handle nextnext = strike
 
 
 
@@ -81,7 +77,6 @@ const getFrameTotals = function(bowlingRolls) {
         }
       }
     }
-    // return [null, []]
   }
 
   let getNextValue = function(rolls, startIndex) {
@@ -110,18 +105,15 @@ const getFrameTotals = function(bowlingRolls) {
   }
 
 
-
+  //MAIN
   let remainingRolls = bowlingRolls
   while (remainingRolls.length > 0) {
-    console.log('NEW LOOP remaining rolls are', remainingRolls)
     let frameResults = getOneFrameTotal(remainingRolls); //returns tuple
-    console.log('frame results for ', remainingRolls, ' is ', frameResults)
     let score = frameResults[0]
-    console.log('score results for', remainingRolls, ' is ', score)
     remainingRolls = frameResults[1]
-    resultantScores.push(score)
-    console.log('length for remaining rolls will be ', remainingRolls.length)
-    console.log('resultant scores right now is', resultantScores)
+    if (resultantScores.length < 10) {
+      resultantScores.push(score)
+    }
   }
 
 
