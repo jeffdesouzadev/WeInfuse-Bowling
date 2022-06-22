@@ -23,6 +23,9 @@ a quick diagram:
     * Use protected methods to *try* to look ahead to future rolls to calculate strikes and spares
     * Profit
 
+## Frame Totals Improved
+1. After putting together a brute-force solution, I worried that I might have missed considering a case here or there.  This second approach covers every possible valid input and has better error coverage.  I find the ease in debugging this new structure worth the cost in ugliness (I indulged in a test-driven workflow, since I already had the tests written while developing the first pass.  It was so much easier to wrap my head around the errors).
+
 
 
 # Installation
