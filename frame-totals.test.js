@@ -14,10 +14,10 @@ test('[1] = [null]', () => {
 test("[X, /] = ERROR", () => {
   expect(()=> { getFrameTotals(['X', '/']);}).toThrow(RangeError)
 });
-test('[X, X] = [null]', () => {
+test('[X, X] = [null, null]', () => {
   expect(getFrameTotals(['X', 'X'])).toEqual([null, null]);
 });
-test('[X, 2] = [null]', () => {
+test('[X, 2] = [null, null]', () => {
   expect(getFrameTotals(['X', 2])).toEqual([null, null]);
 });
 
