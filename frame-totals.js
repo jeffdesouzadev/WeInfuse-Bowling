@@ -6,16 +6,12 @@ const getFrameTotals = function(bowlingRolls) {
    X - Strike, worth 10 + the values of the next two throws
    / - Spare, brings the frame total to 10 + the next throw
   */
-  console.log('NEW TEST ----------------------------------')
+
   let resultantScores = []
-
-
-
-
 
   let getOneFrameTotal = function(rolls) {
     //returns [frameScore, rolls-with-used-indexes-snipped-off]
-    //note: NOT using a switch statement, since it's so easy to forget a break, etc
+    //note: NOT using switch statements, since it's so easy to forget a break, etc
     let runningTotal = 0;
     if (rolls.length < 1) {
       throw new Error('getOneFrameTotal called with empty rolls array.  How??');
@@ -26,7 +22,7 @@ const getFrameTotals = function(bowlingRolls) {
         let val = rolls[0]
         let nextVal = getNextValue(rolls)
         let nextNextVal = getNextNextValue(rolls)
-        // console.log('val, nextVal, nextNextVal:', `${val} ${nextVal} ${nextNextVal}`)
+
         if (val === 'X') { //STRIKE
           if (nextVal === null || nextNextVal === null) {
             runningTotal = null
@@ -35,9 +31,13 @@ const getFrameTotals = function(bowlingRolls) {
           } else {
             if (nextVal==='X') {
               nextVal = 10
+            } else if (nextVal ==='/') {
+              throw new RangeError("Can not start a frame with a spare.");
             }
             if (nextNextVal === 'X') {
               nextNextVal = 10
+            } else if (nextNextVal === '/') {
+              nextNextVal = 10-nextVal
             }
             runningTotal = 10 + nextVal + nextNextVal
             let newRolls = rolls.slice(1, rolls.length)
@@ -53,7 +53,7 @@ const getFrameTotals = function(bowlingRolls) {
               let newRolls = rolls.slice(2, rolls.length)
               return [runningTotal, newRolls]
 
-
+              //NUMBER + / + {null, NUMBER, X}
             } else if (nextVal === '/' && nextNextVal === null) {
               runningTotal = null
               let newRolls = rolls.slice(2, rolls.length)
@@ -67,9 +67,7 @@ const getFrameTotals = function(bowlingRolls) {
               let newRolls = rolls.slice(2, rolls.length)
               return [runningTotal, newRolls]
 
-
-
-
+              //NUMBER + X
             } else if (nextVal === 'X') {
               throw new RangeError("Can not end a frame with a strike.");
             }
@@ -115,10 +113,6 @@ const getFrameTotals = function(bowlingRolls) {
       resultantScores.push(score)
     }
   }
-
-
-
-
   return resultantScores
 }
 module.exports = getFrameTotals
