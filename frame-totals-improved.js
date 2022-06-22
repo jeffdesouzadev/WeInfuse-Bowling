@@ -6,18 +6,16 @@ const getFrameTotals = function(bowlingRolls) {/*
    / - Spare, brings the frame total to 10 + the next throw
   */
 
-  let resultantScores = []
-
-  let getOneFrameTotal = function(rolls) {
+   const getOneFrameTotal = function(rolls) {
     //returns [frameScore, rolls-with-used-indexes-snipped-off]
     //note: NOT using switch statements, since it's so easy to forget breaks
     if (rolls.length < 1) {
       throw new Error('getOneFrameTotal called with empty rolls array.  This should not happen.');
     } else {
 
-      let val = rolls[0]
-      let nextVal = getNextValue(rolls)
-      let nextNextVal = getNextNextValue(rolls)
+      const val = rolls[0]
+      const nextVal = getNextValue(rolls)
+      const nextNextVal = getNextNextValue(rolls)
 
       if (val === null && nextVal=== null && nextNextVal=== null) {
         throw new RangeError("null is not a valid input value.")
@@ -150,7 +148,7 @@ const getFrameTotals = function(bowlingRolls) {/*
     }
   }
 
-  let getNextValue = function(rolls, startIndex) {
+  const getNextValue = function(rolls, startIndex) {
     let sIndex = 0
     if (startIndex) {
       sIndex = startIndex
@@ -162,7 +160,7 @@ const getFrameTotals = function(bowlingRolls) {/*
     }
   }
 
-  let getNextNextValue = function(rolls, startIndex) {
+  const getNextNextValue = function(rolls, startIndex) {
     let sIndex = 0
     if (startIndex) {
       sIndex = startIndex
@@ -174,12 +172,12 @@ const getFrameTotals = function(bowlingRolls) {/*
     }
   }
 
-
   //MAIN
+  const resultantScores = []
   let remainingRolls = bowlingRolls
   while (remainingRolls.length > 0) {
-    let frameResults = getOneFrameTotal(remainingRolls); //returns tuple
-    let score = frameResults[0]
+    const frameResults = getOneFrameTotal(remainingRolls); //returns tuple
+    const score = frameResults[0]
     remainingRolls = frameResults[1]
     if (resultantScores.length < 10) {
       resultantScores.push(score)
