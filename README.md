@@ -24,9 +24,9 @@ a quick diagram:
     * Profit
 
 ## Frame Totals Improved
-1. After putting together a brute-force solution, I worried that I might have missed considering a case here or there.  This second approach covers every possible valid input and has better error coverage.  I find the ease in debugging this new structure worth the cost in ugliness (I indulged in a test-driven workflow, since I already had the tests written while developing the first pass.  It was so much easier to wrap my head around the errors).
+* After putting together a brute-force solution, I worried that I might have missed considering a case here or there.  This second approach covers every possible valid input and has better error coverage.  I'm not sure that the benefits of this design (better confidence, ease in debugging) outweigh the sheer *ugliness* of that exhaustive block of code (almost twice as many lines as my first pass).
 
-
+<br />
 
 # Installation
 1. clone down the repo from git
