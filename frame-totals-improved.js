@@ -146,27 +146,19 @@ const getFrameTotals = function(bowlingRolls) {/*
     }
   }
 
-  const getNextValue = function(rolls, startIndex) {
-    let sIndex = 0
-    if (startIndex) {
-      sIndex = startIndex
-    }
-    if (sIndex > rolls.length - 2) {
-      return null
+  const getNextValue = function(rolls) {
+    if (rolls.length >= 2) {
+      return rolls[1]
     } else {
-      return rolls[sIndex + 1]
+      return null
     }
   }
 
-  const getNextNextValue = function(rolls, startIndex) {
-    let sIndex = 0
-    if (startIndex) {
-      sIndex = startIndex
-    }
-    if (sIndex > rolls.length - 3) {
-      return null
+  const getNextNextValue = function(rolls) {
+    if (rolls.length >=3) {
+      return rolls[2]
     } else {
-      return rolls[sIndex + 2]
+      return null
     }
   }
 
