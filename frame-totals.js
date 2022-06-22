@@ -11,7 +11,7 @@ const getFrameTotals = function(bowlingRolls) {
 
   let getOneFrameTotal = function(rolls) {
     //returns [frameScore, rolls-with-used-indexes-snipped-off]
-    //note: NOT using switch statements, since it's so easy to forget a break, etc
+    //note: NOT using switch statements, since it's so easy to forget breaks
     let runningTotal = 0;
     if (rolls.length < 1) {
       throw new Error('getOneFrameTotal called with empty rolls array.  How??');
@@ -23,7 +23,7 @@ const getFrameTotals = function(bowlingRolls) {
         let nextVal = getNextValue(rolls)
         let nextNextVal = getNextNextValue(rolls)
 
-        if (val === 'X') { //STRIKE
+        if (val === 'X') { //STRIKE START
           if (nextVal === null || nextNextVal === null) {
             runningTotal = null
             let newRolls = rolls.slice(1, rolls.length)
@@ -44,7 +44,7 @@ const getFrameTotals = function(bowlingRolls) {
             return [runningTotal, newRolls]
           }
 
-        } else if (!isNaN(val)) { //NUMBER
+        } else if (!isNaN(val)) { //NUMBER START
           if (nextVal === null) {
             return [null, []]
           } else {
@@ -78,7 +78,6 @@ const getFrameTotals = function(bowlingRolls) {
   }
 
   let getNextValue = function(rolls, startIndex) {
-    // console.log('gNV rolls are ', rolls)
     let sIndex = 0
     if (startIndex) {
       sIndex = startIndex
