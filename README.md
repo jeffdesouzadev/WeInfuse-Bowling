@@ -30,7 +30,7 @@ a quick diagram:
 2. open a terminal window and navigate to the project directory
 3. `npm install`
 4. after it's done installing, run `npm start` to run the jest tests
-5. profit
+5. behold the majesty of all the passing tests
 
 ## Future work
 If I get extra time today, I might bake this into an Express server.
