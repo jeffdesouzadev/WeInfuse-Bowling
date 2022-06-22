@@ -8,11 +8,9 @@ const getFrameTotals = function(bowlingRolls) {/*
 
    const getOneFrameTotal = function(rolls) {
     //returns [frameScore, rolls-with-used-indexes-snipped-off]
-    //note: NOT using switch statements, since it's so easy to forget breaks
     if (rolls.length < 1) {
       throw new Error('getOneFrameTotal called with empty rolls array.  This should not happen.');
     } else {
-
       const val = rolls[0]
       const nextVal = getNextValue(rolls)
       const nextNextVal = getNextNextValue(rolls)
